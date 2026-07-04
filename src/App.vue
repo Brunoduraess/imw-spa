@@ -1,21 +1,30 @@
-<script setup lang="ts"></script>
+<script setup>
+import { ref } from 'vue'
+
+const nome = ref('')
+</script>
 
 <template>
-  <main class="flex min-h-screen items-center justify-center bg-slate-950">
-    <div class="rounded-xl bg-white p-10 shadow-xl">
-      <h1 class="text-4xl font-bold text-blue-600">
-        Vue + Tailwind
-      </h1>
+  <main class="flex min-h-screen items-center justify-center bg-surface-100 p-6">
+    <Card class="w-full max-w-md">
+      <template #title>
+        Cadastro
+      </template>
 
-      <p class="mt-3 text-slate-600">
-        Tailwind CSS instalado corretamente.
-      </p>
+      <template #content>
+        <div class="flex flex-col gap-4">
+          <InputText
+            v-model="nome"
+            placeholder="Digite seu nome"
+            fluid
+          />
 
-      <button
-        class="mt-6 rounded-lg bg-blue-600 px-5 py-2 font-medium text-white transition hover:bg-blue-700"
-      >
-        Começar
-      </button>
-    </div>
+          <Button
+            label="Cadastrar"
+            icon="pi pi-check"
+          />
+        </div>
+      </template>
+    </Card>
   </main>
 </template>
